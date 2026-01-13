@@ -197,7 +197,6 @@ def generate_leaf(name, value, token_type, indent, full_path=""):
                 lines.append(f'{indent}        return UIColor(hex: hex)')
                 lines.append(f'{indent}    }}')
                 lines.append(f'{indent}    static var colorColor: Color {{ Color(uiColor: color) }}')
-                
                 lines.append(f'{indent}    static var value: GabShadow {{ GabShadow(x: CGFloat(x), y: CGFloat(y), blur: CGFloat(blur), spread: CGFloat(spread), color: colorColor) }}')
             else:
                 lines.append(f'{indent}    static var colorRaw: String {{ ColorLoader.shared.getString(named: "{sub_key_color}") ?? "{color_str}" }}')

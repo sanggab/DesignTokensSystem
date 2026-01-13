@@ -43,24 +43,29 @@ struct ContentView: View {
             AsyncImage(url: URL(string: GabDesignModel.Popup.Content.amber)) { (result: AsyncImagePhase) in
                 result.image?
                     .resizable()
+                    .scaledToFit()
+//                    .resizable()
             }
-            .frame(width: 240, height: 120)
+//            .frame(width: 240, height: 120)
             
-            Text("🎁 Daily Bonus Amber")
-                .font(.system(size: 18))
-                .foregroundStyle(GabDesignModel.Popup.Sys.Content.titleColor)
-                .frame(height: 27)
+            if !GabDesignModel.Popup.Sys.title.isEmpty {
+                Text(GabDesignModel.Popup.Sys.title)
+                    .font(.system(size: 18))
+                    .foregroundStyle(GabDesignModel.Popup.Sys.Content.titleColor)
+            }
             
-            Text("👉 Log in daily to get 6 Amber!")
-                .font(.system(size: 16))
-                .foregroundStyle(GabDesignModel.Popup.Sys.Content.subtitleColor)
-                .frame(height: 24)
+            if !GabDesignModel.Popup.Sys.subtitle.isEmpty {
+                Text(GabDesignModel.Popup.Sys.subtitle)
+                    .font(.system(size: 16))
+                    .foregroundStyle(GabDesignModel.Popup.Sys.Content.subtitleColor)
+            }
             
-            Text("Use Amber for Messages, Video Calls, Direct Messages, and Boost.")
-                .font(.system(size: 13))
-                .foregroundStyle(GabDesignModel.Popup.Sys.Content.descriptionColor)
-                .multilineTextAlignment(.center)
-                .frame(height: 40)
+            if !GabDesignModel.Popup.Sys.description.isEmpty {
+                Text(GabDesignModel.Popup.Sys.description)
+                    .font(.system(size: 13))
+                    .foregroundStyle(GabDesignModel.Popup.Sys.Content.descriptionColor)
+                    .multilineTextAlignment(.center)
+            }
         }
     }
     
